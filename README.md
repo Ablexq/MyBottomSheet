@@ -21,6 +21,18 @@ BottomSheetDialogFragment
 
 通过继承于BottomSheetFragment来实现底部菜单布局，适用于需要动态指定布局，并根据Fragment的生命周期做较多逻辑操作的情况。
 
+```
+public class BottomSheetDialogFragment extends AppCompatDialogFragment {
+
+public class AppCompatDialogFragment extends DialogFragment {
+
+public class DialogFragment extends Fragment
+        implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
+
+public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener {
+
+```
+
 
 
 behavior：
