@@ -1,9 +1,27 @@
 
 参考：
 
+[Material Design 控件知识梳理(3) - BottomSheet && BottomSheetDialog && BottomSheetDialogFragment](https://www.jianshu.com/p/2a5be29123e5)
+
 [BottomSheetDialog的使用](https://blog.csdn.net/a254837127/article/details/54926040?locationNum=1&fps=1)
 
 [BottomSheet、BottomSheetDialog使用详解](https://www.jianshu.com/p/0a7383e0ad0f)
+
+
+
+BottomSheet
+
+依赖于CoordinatorLayout和BottomSheetBehavior，需要将底部菜单布局作为CoordinatorLayout的子View，实现简单但不够灵活，适用于底部菜单布局稳定的情况。
+
+BottomSheetDialog
+
+使用方式类似于Dialog，适用于需要动态指定底部菜单布局的情况。
+
+BottomSheetDialogFragment
+
+通过继承于BottomSheetFragment来实现底部菜单布局，适用于需要动态指定布局，并根据Fragment的生命周期做较多逻辑操作的情况。
+
+
 
 behavior：
 ====
@@ -48,6 +66,13 @@ behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
     }
 });
 ```
+
+第一个回调函数用来监听BottomSheet状态的改变，也就是我们上面所说到的五种状态，
+而onSlide回调当中的slideOffset则用来监听底部菜单的偏移量：
+
+当处于展开状态时，偏移量为1
+当处于收起状态时，偏移量为0
+当处于隐藏状态时，偏移量为-1
 
 
 newState的五种状态：
