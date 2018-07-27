@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.button1:
-                //必须每次new再show才可以,不然show之后隐藏不会再show出来
                 MyBottomSheetDialog mBottomSheetDialog = new MyBottomSheetDialog(this);
                 View view = getLayoutInflater().inflate(R.layout.dialog_bottom_sheet, null);
                 mBottomSheetDialog.setContentView(view);
