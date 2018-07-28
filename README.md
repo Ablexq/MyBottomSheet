@@ -83,7 +83,9 @@ behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
 而onSlide回调当中的slideOffset则用来监听底部菜单的偏移量：
 
 当处于展开状态时，偏移量为1
+
 当处于收起状态时，偏移量为0
+
 当处于隐藏状态时，偏移量为-1
 
 
@@ -116,6 +118,25 @@ newState的五种状态：
      */
     public static final int STATE_HIDDEN = 5;   //不可见
 ```
+
+BottomSheet的五种状态：
+
+STATE_DRAGGING：手指在BottomSheet上下拖动从而使得布局跟着上下移动。
+
+STATE_SETTLING：当手指抬起之后，会根据当前的偏移量，决定是要将BottomSheet收起还是展开。
+这两种属于中间态，类似于ViewPager的SCROLL_STATE_DRAGGING和SCROLL_STATE_SETTLING。
+
+STATE_EXPANDED：展开。
+STATE_COLLAPSED：收起。
+STATE_HIDDEN：隐藏。
+这三种属于稳定态，当BottomSheet稳定下来，最终都会恢复到上面三种状态之一，展开很容易理解，需要区别的是收起和隐藏：
+
+隐藏：意味着整个底部布局完全不可见，默认情况下没有这种状态，需要设置app:behavior_hideable="true"
+
+收起：我们可以设置收起时的高度，让它仍然部分可见，并可以通过拖动这部分布局让它进入到展开状态，收起时的高度通过app:behavior_peekHeight设置。
+
+
+
 
 slideOffset的值变化范围：
 --
